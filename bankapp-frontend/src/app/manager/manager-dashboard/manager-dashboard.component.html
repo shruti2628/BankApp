@@ -1,0 +1,324 @@
+<div class="dashboard-wrapper">
+  <!-- Top Navigation -->
+  <nav class="dashboard-nav">
+    <div class="nav-content">
+      <div class="nav-brand">
+        <svg width="36" height="36" viewBox="0 0 48 48" fill="none">
+          <rect width="48" height="48" rx="12" fill="url(#logo-gradient)"/>
+          <path d="M24 16L30 20V28L24 32L18 28V20L24 16Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M24 16V24" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <path d="M24 24L30 20" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <path d="M24 24L18 20" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="logo-gradient" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#1a4d8f"/>
+              <stop offset="1" stop-color="#2563a8"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="nav-brand-text">
+          <h3>SecureBank</h3>
+          <span class="badge badge-manager">Manager</span>
+        </div>
+      </div>
+      
+      <div class="nav-actions">
+        <button class="btn-icon" title="Notifications">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M10 2C7.794 2 6 3.794 6 6V9L4.382 11.618C3.618 12.382 4.145 14 5.236 14H14.764C15.855 14 16.382 12.382 15.618 11.618L14 9V6C14 3.794 12.206 2 10 2Z"/>
+            <path d="M10 18C11.1046 18 12 17.1046 12 16H8C8 17.1046 8.89543 18 10 18Z"/>
+          </svg>
+        </button>
+        <div class="user-menu">
+          <div class="user-avatar">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"/>
+              <path d="M12 14C7.58172 14 4 16.6863 4 20C4 20.5523 4.44772 21 5 21H19C19.5523 21 20 20.5523 20 20C20 16.6863 16.4183 14 12 14Z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="dashboard-container">
+    <div class="dashboard-header fade-in">
+      <div>
+        <h1>Manager Dashboard</h1>
+        <p class="dashboard-subtitle">Manage transactions and accounts</p>
+      </div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="stats-grid fade-in">
+      <div class="stat-card">
+        <div class="stat-icon stat-icon-primary">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z"/>
+            <path d="M2 17L12 22L22 17V12L12 17L2 12V17Z" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <p class="stat-label">Pending Transactions</p>
+          <h3 class="stat-value">{{ transactions.length }}</h3>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon stat-icon-success">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20 7H16V5C16 3.346 14.654 2 13 2H11C9.346 2 8 3.346 8 5V7H4C2.897 7 2 7.897 2 9V19C2 20.103 2.897 21 4 21H20C21.103 21 22 20.103 22 19V9C22 7.897 21.103 7 20 7ZM10 5C10 4.449 10.449 4 11 4H13C13.551 4 14 4.449 14 5V7H10V5Z"/>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <p class="stat-label">Total Accounts</p>
+          <h3 class="stat-value">{{ accounts.length }}</h3>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon stat-icon-warning">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V15H13V17ZM13 13H11V7H13V13Z"/>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <p class="stat-label">Awaiting Review</p>
+          <h3 class="stat-value">{{ transactions.length }}</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pending Transactions Section -->
+    <div class="dashboard-section fade-in">
+      <div class="section-header">
+        <h2>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M9 12H15M12 9V15M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"/>
+          </svg>
+          Pending Transactions
+        </h2>
+      </div>
+
+      <div class="card" *ngIf="transactions.length > 0">
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Account</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Performed By</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let tx of transactions" class="slide-in">
+                <td>
+                  <span class="id-badge">#{{ tx.id }}</span>
+                </td>
+                <td>
+                  <div class="account-cell">
+                    <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
+                      <path d="M4 4C4 2.89543 4.89543 2 6 2H14C15.1046 2 16 2.89543 16 4V16C16 17.1046 15.1046 18 14 18H6C4.89543 18 4 17.1046 4 16V4Z"/>
+                    </svg>
+                    <span>{{ tx.accountNumber }}</span>
+                  </div>
+                </td>
+                <td>
+                  <span [ngClass]="{
+                    'badge': true,
+                    'badge-deposit': tx.type === 'DEPOSIT',
+                    'badge-withdraw': tx.type === 'WITHDRAW'
+                  }">
+                    {{ tx.type }}
+                  </span>
+                </td>
+                <td>
+                  <span [ngClass]="{
+                    'amount': true,
+                    'amount-positive': tx.type === 'DEPOSIT',
+                    'amount-negative': tx.type === 'WITHDRAW'
+                  }">
+                    {{ tx.type === 'DEPOSIT' ? '+' : '-' }}₹{{ tx.amount | number:'1.2-2' }}
+                  </span>
+                </td>
+                <td>{{ tx.performedBy }}</td>
+                <td>
+                  <span class="badge badge-pending">Pending</span>
+                </td>
+                <td>
+                  <div class="action-buttons">
+                    <button class="btn-action btn-approve" (click)="approve(tx.id)" title="Approve">
+                      <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                      </svg>
+                      Approve
+                    </button>
+                    <button class="btn-action btn-reject" (click)="reject(tx.id)" title="Reject">
+                      <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                      </svg>
+                      Reject
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="empty-state" *ngIf="transactions.length === 0">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="32" r="32" fill="#F3F4F6"/>
+          <path d="M32 20V44M20 32H44" stroke="#9CA3AF" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <h3>No Pending Transactions</h3>
+        <p>All transactions have been processed</p>
+      </div>
+    </div>
+
+    <!-- Create Account Section -->
+    <div class="dashboard-section fade-in">
+      <div class="section-header">
+        <h2>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12C14.2091 12 16 10.2091 16 8C16 5.79086 14.2091 4 12 4Z"/>
+            <path d="M6 20C6 16.6863 8.68629 14 12 14C15.3137 14 18 16.6863 18 20V21H6V20Z"/>
+          </svg>
+          Create New Account
+        </h2>
+      </div>
+
+      <div class="card create-account-card">
+        <form (submit)="createAccount()" class="account-form">
+          <div class="form-grid">
+            <div class="input-group">
+              <label for="holderName">Account Holder Name</label>
+              <input
+                type="text"
+                id="holderName"
+                [(ngModel)]="account.holderName"
+                name="holderName"
+                placeholder="Enter full name"
+                required>
+            </div>
+
+            <div class="input-group">
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                [(ngModel)]="account.email"
+                name="email"
+                placeholder="Enter email"
+                required>
+            </div>
+
+            <div class="input-group">
+              <label for="contactNumber">Contact Number</label>
+              <input
+                type="tel"
+                id="contactNumber"
+                [(ngModel)]="account.contactNumber"
+                name="contactNumber"
+                placeholder="Enter phone number"
+                required>
+            </div>
+
+            <div class="input-group">
+              <label for="panNumber">PAN Number</label>
+              <input
+                type="text"
+                id="panNumber"
+                [(ngModel)]="account.panNumber"
+                name="panNumber"
+                placeholder="Enter PAN number"
+                required>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"/>
+            </svg>
+            Create Account
+          </button>
+        </form>
+
+        <div class="alert alert-success" *ngIf="createdAccount">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"/>
+          </svg>
+          <div>
+            <strong>Account Created Successfully!</strong>
+            <div class="account-details">
+              <p><strong>Account Number:</strong> {{ createdAccount.accountNumber }}</p>
+              <p><strong>Holder:</strong> {{ createdAccount.holderName }}</p>
+              <p><strong>Balance:</strong> ₹{{ createdAccount.balance | number:'1.2-2' }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- All Accounts Section -->
+    <div class="dashboard-section fade-in">
+      <div class="section-header">
+        <h2>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M9 6H5C3.89543 6 3 6.89543 3 8V18C3 19.1046 3.89543 20 5 20H19C20.1046 20 21 19.1046 21 18V8C21 6.89543 20.1046 6 19 6H15M9 6V5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V6M9 6H15"/>
+          </svg>
+          All Accounts
+        </h2>
+      </div>
+
+      <div class="card" *ngIf="accounts.length > 0">
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Account Number</th>
+                <th>Holder Name</th>
+                <th>Email</th>
+                <th>Contact</th>
+                <th>Balance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let acc of accounts" class="slide-in">
+                <td>
+                  <span class="account-number">{{ acc.accountNumber }}</span>
+                </td>
+                <td>
+                  <div class="holder-cell">
+                    <div class="holder-avatar">{{ acc.holderName?.charAt(0) }}</div>
+                    <span>{{ acc.holderName }}</span>
+                  </div>
+                </td>
+                <td>{{ acc.email }}</td>
+                <td>{{ acc.contactNumber }}</td>
+                <td>
+                  <span class="balance-amount">₹{{ acc.balance | number:'1.2-2' }}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="empty-state" *ngIf="accounts.length === 0">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="32" r="32" fill="#F3F4F6"/>
+          <path d="M32 20V44M20 32H44" stroke="#9CA3AF" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <h3>No Accounts Found</h3>
+        <p>Create your first account to get started</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,123 @@
+<div class="login-wrapper">
+  <div class="login-background">
+    <div class="bg-pattern"></div>
+  </div>
+  
+  <div class="login-container fade-in">
+    <div class="login-card">
+      <!-- Header -->
+      <div class="login-header">
+        <div class="logo">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+            <rect width="48" height="48" rx="12" fill="url(#logo-gradient)"/>
+            <path d="M24 16L30 20V28L24 32L18 28V20L24 16Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M24 16V24" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <path d="M24 24L30 20" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <path d="M24 24L18 20" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <defs>
+              <linearGradient id="logo-gradient" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#1a4d8f"/>
+                <stop offset="1" stop-color="#2563a8"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <h1 class="login-title">Bank System Portal</h1>
+        <p class="login-subtitle">Access your banking dashboard</p>
+      </div>
+
+      <!-- Login Form -->
+      <form class="login-form" (ngSubmit)="login()">
+        <div class="input-group">
+          <label for="username">Username</label>
+          <div class="input-wrapper">
+            <svg class="input-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M10 10C12.7614 10 15 7.76142 15 5C15 2.23858 12.7614 0 10 0C7.23858 0 5 2.23858 5 5C5 7.76142 7.23858 10 10 10Z" fill="currentColor"/>
+              <path d="M10 12C5.58172 12 2 14.6863 2 18C2 18.5523 2.44772 19 3 19H17C17.5523 19 18 18.5523 18 18C18 14.6863 14.4183 12 10 12Z" fill="currentColor"/>
+            </svg>
+            <input
+              type="text"
+              id="username"
+              [(ngModel)]="username"
+              name="username"
+              placeholder="Enter your username"
+              required
+              autocomplete="username">
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="password">Password</label>
+          <div class="input-wrapper">
+            <svg class="input-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M15 7H14V5C14 2.79086 12.2091 1 10 1C7.79086 1 6 2.79086 6 5V7H5C3.89543 7 3 7.89543 3 9V17C3 18.1046 3.89543 19 5 19H15C16.1046 19 17 18.1046 17 17V9C17 7.89543 16.1046 7 15 7ZM8 5C8 3.89543 8.89543 3 10 3C11.1046 3 12 3.89543 12 5V7H8V5Z" fill="currentColor"/>
+            </svg>
+            <input
+              type="password"
+              id="password"
+              [(ngModel)]="password"
+              name="password"
+              placeholder="Enter your password"
+              required
+              autocomplete="current-password">
+          </div>
+        </div>
+
+        <div class="alert alert-error" *ngIf="errorMessage">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+          </svg>
+          {{ errorMessage }}
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">
+          Sign In
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+      </form>
+
+      <!-- Footer -->
+      <div class="login-footer">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+          <path fill-rule="evenodd" d="M8 1a7 7 0 100 14A7 7 0 008 1zm0 2a1 1 0 011 1v3.586l2.707 2.707a1 1 0 01-1.414 1.414l-3-3A1 1 0 017 8V4a1 1 0 011-1z" clip-rule="evenodd"/>
+        </svg>
+        <p>For security, your session will expire after 30 minutes of inactivity</p>
+      </div>
+    </div>
+
+    <!-- Features -->
+    <div class="login-features">
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z" fill="currentColor"/>
+          </svg>
+        </div>
+        <h4>Easy Access</h4>
+        <p>Bank-grade encryption</p>
+      </div>
+      
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M19 3H5C3.89 3 3 3.89 3 5V19C3 20.11 3.89 21 5 21H19C20.11 21 21 20.11 21 19V5C21 3.89 20.11 3 19 3ZM19 19H5V5H19V19ZM17 12C17 9.24 14.76 7 12 7C9.24 7 7 9.24 7 12C7 14.76 9.24 17 12 17C14.76 17 17 14.76 17 12Z" fill="currentColor"/>
+          </svg>
+        </div>
+        <h4>Real-time Updates</h4>
+        <p>Instant transaction processing</p>
+      </div>
+      
+      <div class="feature-item">
+        <div class="feature-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1ZM12 11.99H19C18.47 16.11 15.72 19.78 12 20.93V12H5V6.3L12 3.19V11.99Z" fill="currentColor"/>
+          </svg>
+        </div>
+        <h4>Protected Data</h4>
+        <p>Your information is safe</p>
+      </div>
+    </div>
+  </div>
+</div>

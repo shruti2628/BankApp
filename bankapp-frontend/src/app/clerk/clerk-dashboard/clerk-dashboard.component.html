@@ -1,0 +1,242 @@
+<div class="dashboard-wrapper">
+  <!-- Top Navigation -->
+  <nav class="dashboard-nav">
+    <div class="nav-content">
+      <div class="nav-brand">
+        <svg width="36" height="36" viewBox="0 0 48 48" fill="none">
+          <rect width="48" height="48" rx="12" fill="url(#logo-gradient)"/>
+          <path d="M24 16L30 20V28L24 32L18 28V20L24 16Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M24 16V24" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <path d="M24 24L30 20" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <path d="M24 24L18 20" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="logo-gradient" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#1a4d8f"/>
+              <stop offset="1" stop-color="#2563a8"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="nav-brand-text">
+          <h3>SecureBank</h3>
+          <span class="badge badge-clerk">Clerk</span>
+        </div>
+      </div>
+      
+      <div class="nav-actions">
+        <button class="btn-icon" title="Notifications">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M10 2C7.794 2 6 3.794 6 6V9L4.382 11.618C3.618 12.382 4.145 14 5.236 14H14.764C15.855 14 16.382 12.382 15.618 11.618L14 9V6C14 3.794 12.206 2 10 2Z"/>
+            <path d="M10 18C11.1046 18 12 17.1046 12 16H8C8 17.1046 8.89543 18 10 18Z"/>
+          </svg>
+        </button>
+        <div class="user-menu">
+          <div class="user-avatar">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"/>
+              <path d="M12 14C7.58172 14 4 16.6863 4 20C4 20.5523 4.44772 21 5 21H19C19.5523 21 20 20.5523 20 20C20 16.6863 16.4183 14 12 14Z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="dashboard-container">
+    <div class="dashboard-header fade-in">
+      <div>
+        <h1>Clerk Dashboard</h1>
+        <p class="dashboard-subtitle">Process deposits and withdrawals</p>
+      </div>
+    </div>
+
+    <!-- Transaction Actions Card -->
+    <div class="dashboard-section fade-in">
+      <div class="section-header">
+        <h2>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M4 4C4 2.89543 4.89543 2 6 2H18C19.1046 2 20 2.89543 20 4V20C20 21.1046 19.1046 22 18 22H6C4.89543 22 4 21.1046 4 20V4Z"/>
+            <path d="M9 10H15M9 14H15" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          New Transaction
+        </h2>
+      </div>
+
+      <div class="card transaction-card">
+        <div class="transaction-form">
+          <div class="form-row">
+            <div class="input-group">
+              <label for="accountNumber">Account Number</label>
+              <div class="input-wrapper">
+                <svg class="input-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M4 4C4 2.89543 4.89543 2 6 2H14C15.1046 2 16 2.89543 16 4V16C16 17.1046 15.1046 18 14 18H6C4.89543 18 4 17.1046 4 16V4Z"/>
+                </svg>
+                <input
+                  type="text"
+                  id="accountNumber"
+                  [(ngModel)]="accountNumber"
+                  placeholder="Enter account number"
+                  required>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label for="amount">Amount (₹)</label>
+              <div class="input-wrapper">
+                <svg class="input-icon" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/>
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"/>
+                </svg>
+                <input
+                  type="number"
+                  id="amount"
+                  [(ngModel)]="amount"
+                  placeholder="Enter amount"
+                  min="0"
+                  step="0.01"
+                  required>
+              </div>
+            </div>
+          </div>
+
+          <div class="alert alert-success" *ngIf="message">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            {{ message }}
+          </div>
+
+          <div class="action-buttons">
+            <button class="btn btn-deposit" (click)="deposit()">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 10.586V7z" clip-rule="evenodd"/>
+              </svg>
+              Deposit Funds
+            </button>
+
+            <button class="btn btn-withdraw" (click)="withdraw()">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 10.586V7z" clip-rule="evenodd" transform="rotate(180 10 10)"/>
+              </svg>
+              Withdraw Funds
+            </button>
+
+            <button class="btn btn-outline" (click)="loadTransactions()">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
+                <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"/>
+              </svg>
+              View Transactions
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Transaction History -->
+    <div class="dashboard-section fade-in" *ngIf="transactions.length > 0">
+      <div class="section-header">
+        <h2>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM12.5 7H11V13L16.25 16.15L17 14.92L12.5 12.25V7Z"/>
+          </svg>
+          Transaction History
+        </h2>
+        <div class="section-actions">
+          <span class="page-info">Page {{ page + 1 }} of {{ totalPages }}</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Date & Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let tx of transactions" class="slide-in">
+                <td>
+                  <span class="id-badge">#{{ tx.id }}</span>
+                </td>
+                <td>
+                  <span class="badge"
+                        [class.badge-deposit]="tx.type === 'DEPOSIT'"
+                        [class.badge-withdraw]="tx.type === 'WITHDRAW'">
+                    <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" *ngIf="tx.type === 'DEPOSIT'">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 10.586V7z" clip-rule="evenodd"/>
+                    </svg>
+                    <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" *ngIf="tx.type === 'WITHDRAW'">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 10.586V7z" clip-rule="evenodd" transform="rotate(180 10 10)"/>
+                    </svg>
+                    {{ tx.type }}
+                  </span>
+                </td>
+                <td>
+                  <span class="amount"
+                        [class.amount-positive]="tx.type === 'DEPOSIT'"
+                        [class.amount-negative]="tx.type === 'WITHDRAW'">
+                    {{ tx.type === 'DEPOSIT' ? '+' : '-' }}₹{{ tx.amount | number:'1.2-2' }}
+                  </span>
+                </td>
+                <td>
+                  <span class="badge"
+                        [class.badge-pending]="tx.status === 'PENDING'"
+                        [class.badge-approved]="tx.status === 'APPROVED'"
+                        [class.badge-rejected]="tx.status === 'REJECTED'">
+                    {{ tx.status }}
+                  </span>
+                </td>
+                <td>
+                  <div class="datetime-cell">
+                    <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                    </svg>
+                    <span>{{ tx.transactionTime | date:'medium' }}</span>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="pagination">
+          <button class="btn btn-outline" (click)="prevPage()" [disabled]="page === 0">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            Previous
+          </button>
+
+          <span class="pagination-info">
+            <strong>{{ page + 1 }}</strong> of <strong>{{ totalPages }}</strong>
+          </span>
+
+          <button class="btn btn-outline" (click)="nextPage()" [disabled]="page >= totalPages - 1">
+            Next
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div class="dashboard-section fade-in" *ngIf="transactions.length === 0 && accountNumber">
+      <div class="empty-state">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <circle cx="40" cy="40" r="40" fill="#F3F4F6"/>
+          <path d="M40 25V55M25 40H55" stroke="#9CA3AF" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <h3>No Transactions Found</h3>
+        <p>No transaction history for this account yet</p>
+      </div>
+    </div>
+  </div>
+</div>
